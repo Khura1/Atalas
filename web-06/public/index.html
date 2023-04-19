@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Website</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        h1, h2 {
+            color: DeepSkyBlue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website</h1>
+    <h2>Post Message</h2>
+
+    
+    <form onsubmit="postMessage(); return false">
+        <label>Name: <input id="name" required></label>
+        <label>Content: <input id="content" required></label>
+        <input type="submit" value="Post Message">
+    </form>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // start-up code
+        })
+
+        async function postMessage() {
+
+            const message = {
+                name: document.getElementById('name').value,
+                content: document.getElementById('content').value,
+            }
+
+            // Request that the server adds our message
+            const response = await fetch('/bulletin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(message),
+            })
+            if (!response.ok) throw new Error('Failure during post')
+
+            // Select the text in the message box so the user can easily overwrite it by typing
+            document.getElementById('content').select()
+        }
+    </script>
+</body>
+</html>

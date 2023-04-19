@@ -1,0 +1,25 @@
+{
+  "name": "web-05",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-vue": "^2.8.3",
+    "os-browserify": "^0.3.0",
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "play-sound": "^1.1.5",
+    "vue": "^3.2.36",
+    "vue-audio": "^0.0.12",
+    "vue-sound": "^0.1.10",
+    "vue-use-sound": "^1.1.1"
+  }
+}
